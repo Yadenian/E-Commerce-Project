@@ -112,7 +112,7 @@ E-Commerce-/
 
 1. **Clone or navigate to the project directory:**
    ```bash
-   cd E-Commerce-
+   cd E-Commerce-Project
    ```
 
 2. **Install dependencies:**
