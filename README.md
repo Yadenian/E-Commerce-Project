@@ -10,6 +10,7 @@ A modern, full-featured e-commerce application built with React, TypeScript, Vit
 - **Shopping Cart**: Add products to cart, manage quantities, and view order summary
 - **Responsive Design**: Fully responsive UI that works on all device sizes
 - **Modern UI**: Beautiful and intuitive interface built with Tailwind CSS
+- **User Feedback**: Toast notifications for cart actions, checkout, and errors
 - **Type Safety**: Full TypeScript support for better development experience
 - **Fast Performance**: Optimized with Vite and TanStack Query for efficient data fetching
 
@@ -22,6 +23,7 @@ A modern, full-featured e-commerce application built with React, TypeScript, Vit
 - **TanStack Query**: Powerful data synchronization for React
 - **Tailwind CSS**: Utility-first CSS framework
 - **DummyJSON API**: Free REST API for e-commerce data
+- **React Toastify**: Toast notifications for user feedback
 
 ##  Project Structure
 
@@ -29,29 +31,34 @@ A modern, full-featured e-commerce application built with React, TypeScript, Vit
 E-Commerce-/
 ├── public/                 # Static assets
 ├── src/
-│   ├── components/         # Reusable UI components
-│   │   ├── Header.tsx     # Navigation header with cart badge
-│   │   ├── ProductCard.tsx # Product card component
-│   │   ├── LoadingSpinner.tsx # Loading indicator
-│   │   └── ErrorMessage.tsx   # Error display component
-│   ├── context/           # React Context providers
-│   │   └── CartContext.tsx # Shopping cart state management
-│   ├── pages/             # Page components
-│   │   ├── HomePage.tsx   # Product listing page
+│   ├── components/           # Reusable UI components
+│   │   ├── Header.tsx        # Navigation header with cart badge
+│   │   ├── ProductCard.tsx   # Product card component with toast feedback
+│   │   ├── LoadingSpinner.tsx# Loading indicator
+│   │   └── ErrorMessage.tsx  # Error display component
+│   ├── context/              # React Context providers
+│   │   ├── cartContext.ts    # Cart context definition
+│   │   └── CartProvider.tsx  # Cart state provider with toast helpers
+│   ├── hooks/                # Custom hooks
+│   │   └── useCart.ts        # Cart hook exposing cart actions/state
+│   ├── pages/                # Page components
+│   │   ├── HomePage.tsx      # Product listing page
 │   │   ├── ProductDetailPage.tsx # Product detail view
-│   │   └── CartPage.tsx   # Shopping cart page
-│   ├── routes/            # TanStack Router route definitions
-│   │   ├── __root.tsx     # Root route with layout
-│   │   ├── index.tsx      # Home route
+│   │   ├── CartPage.tsx      # Shopping cart page
+│   │   └── RegisterPage.tsx  # User registration flow
+│   ├── routes/               # TanStack Router route definitions
+│   │   ├── __root.tsx        # Root route with layout
+│   │   ├── index.tsx         # Home route
 │   │   ├── products.$productId.tsx # Product detail route
-│   │   └── cart.tsx       # Cart route
-│   ├── services/          # API services
-│   │   └── api.ts         # DummyJSON API integration
-│   ├── types/             # TypeScript type definitions
-│   │   └── index.ts       # Shared types and interfaces
-│   ├── App.tsx            # (Legacy, can be removed)
-│   ├── main.tsx           # Application entry point
-│   └── index.css          # Global styles with Tailwind
+│   │   ├── cart.tsx          # Cart route
+│   │   └── register.tsx      # Registration route
+│   ├── services/             # API services
+│   │   └── api.ts            # DummyJSON API integration
+│   ├── types/                # TypeScript type definitions
+│   │   └── index.ts          # Shared types and interfaces
+│   ├── App.tsx               # (Legacy, can be removed)
+│   ├── main.tsx              # Application entry point
+│   └── index.css             # Global styles with Tailwind
 ├── index.html             # HTML template
 ├── package.json           # Dependencies and scripts
 ├── tailwind.config.js     # Tailwind CSS configuration

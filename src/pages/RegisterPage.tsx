@@ -23,7 +23,6 @@ export const RegisterPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validation
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.password) {
       toast.error('Please fill in all fields');
       return;
@@ -41,17 +40,14 @@ export const RegisterPage = () => {
 
     setIsLoading(true);
 
-    // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
       toast.success('Registration successful! Welcome to our store!');
-      // Store user info in localStorage (simulation)
       localStorage.setItem('user', JSON.stringify({
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
       }));
-      // Navigate to home page after successful registration
       setTimeout(() => {
         navigate({ to: '/' });
       }, 1500);
