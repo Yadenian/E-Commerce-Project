@@ -20,6 +20,13 @@ export const Header = () => {
               Products
             </Link>
             <Link
+              to="/register"
+              className="text-gray-700 hover:text-blue-600 transition-colors"
+              activeProps={{ className: 'text-blue-600 font-semibold' }}
+            >
+              Register
+            </Link>
+            <Link
               to="/cart"
               className="relative text-gray-700 hover:text-blue-600 transition-colors"
               activeProps={{ className: 'text-blue-600 font-semibold' }}

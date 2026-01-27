@@ -1,17 +1,24 @@
 import { Link } from '@tanstack/react-router';
 import type { Product } from '../types';
 import { useCart } from '../hooks/useCart';
+import { toast } from 'react-toastify';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-  const { addToCart } = useCart();
+  const { addToCart, cartItems } = useCart();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
+    const existingItem = cartItems.find((item) => item.id === product.id);
     addToCart(product);
+    if (existingItem) {
+      toast.success(`${product.title} quantity updated in cart!`);
+    } else {
+      toast.success(`${product.title} added to cart!`);
+    }
   };
 
   return (

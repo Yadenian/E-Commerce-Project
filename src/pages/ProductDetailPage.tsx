@@ -4,6 +4,7 @@ import { api } from '../services/api';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { useCart } from '../hooks/useCart';
+import { toast } from 'react-toastify';
 
 export const ProductDetailPage = () => {
   const { productId } = useParams({ from: '/products/$productId' });
@@ -98,7 +99,14 @@ export const ProductDetailPage = () => {
             <p className="text-gray-700 mb-6">{product.description}</p>
 
             <button
-              onClick={() => addToCart(product)}
+              onClick={() => {
+                addToCart(product);
+                if (isInCart) {
+                  toast.success(`${product.title} quantity updated in cart!`);
+                } else {
+                  toast.success(`${product.title} added to cart!`);
+                }
+              }}
               disabled={product.stock === 0}
               className={`w-full py-3 rounded-lg font-semibold transition-colors ${
                 isInCart

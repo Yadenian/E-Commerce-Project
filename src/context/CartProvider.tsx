@@ -40,6 +40,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCartItems([]);
   };
 
+  const checkout = async (): Promise<boolean> => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        clearCart();
+        resolve(true);
+      }, 2000);
+    });
+  };
+
   const getTotalItems = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
@@ -56,6 +65,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         removeFromCart,
         updateQuantity,
         clearCart,
+        checkout,
         getTotalItems,
         getTotalPrice,
       }}

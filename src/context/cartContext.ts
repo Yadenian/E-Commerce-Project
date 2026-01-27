@@ -7,6 +7,7 @@ export interface CartContextType {
   removeFromCart: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
   clearCart: () => void;
+  checkout: () => Promise<boolean>;
   getTotalItems: () => number;
   getTotalPrice: () => number;
 }
