@@ -22,3 +22,4 @@ export interface ProductsResponse {
 export interface CartItem extends Product {
   quantity: number;
 }
+

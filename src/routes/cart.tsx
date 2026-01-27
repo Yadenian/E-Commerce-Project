@@ -4,3 +4,4 @@ import { CartPage } from '../pages/CartPage';
 export const Route = createFileRoute('/cart')({
   component: CartPage,
 });
+

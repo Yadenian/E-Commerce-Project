@@ -61,3 +61,4 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     </Link>
   );
 };
+

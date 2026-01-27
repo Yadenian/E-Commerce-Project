@@ -128,3 +128,4 @@ export const ProductDetailPage = () => {
     </div>
   );
 };
+
